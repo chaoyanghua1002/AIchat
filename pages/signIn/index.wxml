@@ -1,0 +1,18 @@
+<!--pages/signIn/index.wxml-->
+<view class="signIn-box">
+  <view class="s-input">
+    <van-cell-group>
+      <van-field
+        required
+        model:value="{{ phone }}"
+        placeholder="请输入手机号"
+        border="{{ false }}"
+      />
+    </van-cell-group>
+  </view>
+  <view class="s-btn">
+    <van-button bind:click="signIn" size="large" type="info">注册</van-button>
+  </view>
+</view>
+<van-toast id="van-toast" />
+

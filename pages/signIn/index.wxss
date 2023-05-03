@@ -1,0 +1,15 @@
+/* pages/signIn/index.wxss */
+.signIn-box{
+
+}
+.s-input{
+  margin: 100px 0 20px 0;
+  padding: 0 25px;
+}
+.s-btn{
+  width: 85%;
+  margin: 30px auto 0;
+}
+.s-btn button{
+  height: 40px;
+}

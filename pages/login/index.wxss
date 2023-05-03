@@ -1,0 +1,29 @@
+/* pages/login/index.wxss */
+.login_title{
+  text-align: center;
+  color:blueviolet;
+  font-weight:bold;
+  font-size:30px;
+  margin:10px auto 10px;
+  line-height: 32px; 
+  letter-spacing: 5px;
+  background-image:-webkit-linear-gradient(top,#7517cc ,#a309fcee,#d876e0);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.logim_image{
+  width:80%;
+}
+.logim_imageBox{
+  text-align: center;
+}
+.login_btn{
+  background-color:#7517cc ;
+  border-radius: 20px;
+  width: 50%;
+  color:#fff;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 40px;
+  margin:60px auto 0
+}

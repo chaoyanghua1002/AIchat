@@ -1,0 +1,12 @@
+<!--pages/login/index.wxml-->
+<view class="login_title">
+  福宝知多少
+</view>
+<view class="logim_imageBox">
+   <image class="logim_image" src="/image/login.jpg" mode="widthFix"/>
+</view>
+<view>
+  <button class="login_btn" 	open-type="getUserInfo"
+  bindgetuserinfo="getOpenId"
+  >开始对话</button>
+</view>

@@ -1,0 +1,69 @@
+/* pages/chat/index.wxss */
+#chat-box{
+  padding-bottom: 75px;
+}
+.img_box{
+  height: 50px;
+  width: 50px;
+  overflow: hidden;  /*超出边框隐藏*/
+  border-radius: 50px;
+  text-align: center;/*子元素居中 */
+  background-color: #fff;
+  margin:5px;
+}
+.head_portrait{
+  height: 80%;
+  padding: 10% 0 0;
+}
+.dialog{
+  background-color: #fff;
+  border-radius:0 10px 10px 10px;
+  padding:5px 5px 5px 5px;
+  max-width:calc(100% - 50px - 60px);/*输入框最大宽度，根据文字调整*/
+  margin:30px 0 0 5px;
+  box-shadow: 0 0 5px #999; /*下 右 阴影长度 阴影颜色*/
+  box-sizing: border-box;/*输入框最大宽度减去padding宽度*/
+}
+.dialog_box{
+  display:flex;
+}
+.student_box{
+  flex-direction: row-reverse;   /*对话框父级元素从左往右*/
+}
+.student_dialog{
+  border-radius: 10px 0 10px 10px;
+}
+.i_put{
+  height: 40px;
+  background-color: #fff;
+  border-radius:15px 15px 15px 15px;
+  box-shadow: 0 0 5px #999;
+  flex: 1;/*父级元素剩余空间填充满*/
+  margin-left:10px;
+}
+.input_box{
+  position:fixed;
+  bottom: 20px;
+  width: 100%;
+  z-index: 999;/*position属性优先级设置，高不会被挡住*/
+  display: flex;/*按钮和输入框在同一行*/
+}
+.input_box .i_send{
+  border-radius: 30px;
+  height: 40px;
+  width: 40px;
+  overflow: hidden;
+  background-color: #fff;
+  margin:0 10px 0 10px;
+  display: flex;     /*为了使align-items和justify-content两个生效*/
+  align-items: center;/*上下对齐*/
+  justify-content: center;/*左右对齐*/
+  padding: 0 5px;
+  box-shadow: 0 0 5px #999;
+}
+.image_send{
+  width: 25px;
+}
+.input_box input{
+  padding-left: 15px;
+}
