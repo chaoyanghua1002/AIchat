@@ -2,14 +2,14 @@
 <view id="chat-box">
   <view wx:for="{{talkList}}" class="dialog_box {{item.state === 2 ? 'student_box' : ''}}">
     <view class="img_box">
-      <image wx:if="{{item.state === 1}}" src="/image/headportrait.jpg" class="head_portrait" mode="heightFix"/>
+      <image wx:if="{{item.state === 1}}" src="/image/user.jpg" class="head_portrait" mode="heightFix"/>
       <image wx:else src="/image/student.png" class="head_portrait" mode="heightFix"/>
     </view>
     <view class="dialog {{item.state === 2? 'student_dialog':''}}">{{item.text}}</view>
   </view>
   <view class="input_box">
     <input type="text" placeholder="请输入你的问题" class="i_put" bindinput="getInputInfo" value="{{text}}" />
-    <button class="i_send" size="mini" bindtap="senInfo">
+    <button class="i_send" size="mini" bindtap="sendInfo">
       <image  src="/image/send.png" mode="widthFix" class="image_send"/>
     </button>
   </view>

@@ -1,4 +1,6 @@
 // pages/chat/index.js
+import api from '../../api/index'
+var app = getApp();
 Page({
 
   /**
@@ -10,18 +12,6 @@ Page({
       {
         state: 1, //1客服  2学生
         text: '你好，我是小福，您可以向我提问任何问题'
-      },
-      {
-        state: 2, //1客服  2学生
-        text: '你好呀'
-      },
-      {
-        state: 1, //1客服  2学生
-        text: '您好！有什么我可以帮您的吗'
-      },
-      {
-        state: 2, //1客服  2学生
-        text: '帮我写个故事吧'
       }
     ],
   },
@@ -30,7 +20,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    if (!app.globalData.userInfo.hasRegist) {
+      wx.redirectTo({
+        url: '/pages/signIn/index'
+      })
+    }
   },
 
   /**
@@ -44,7 +38,15 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-
+    this.getList();
+  },
+  // 查询聊天记录
+  async getList() {
+    let param = {
+      open_id: app.globalData.userInfo.openid
+    };
+    let res = await api.aichat(param);
+    console.log(1111, res);
   },
   getInputInfo(res) {
     const str=res.detail.value /*1 拿到输入框数据 */
@@ -52,7 +54,7 @@ Page({
       text: str       /* 2 赋值到data里面的text里*/
     })
   },
-  senInfo(){    //点击发送按钮
+  async sendInfo(){    //点击发送按钮
     if (!this.data.text || !this.data.text.trim()) {
       wx.showToast({
         title: '请输入文字',
@@ -63,7 +65,12 @@ Page({
     }
     wx.showLoading({
       title: '加载中',
-    })
+    });
+    let param = {
+      open_id: app.globalData.userInfo.openid,
+      vx_msg: this.data.text
+    }
+    let res = await api.aichat(param);
     let list = this.data.talkList; /* 3 先拿到聊天记录*/
     let obj = {
       state: 2, //1客服  2学生
@@ -77,7 +84,6 @@ Page({
       text : ''        /*7 清空输入框 */
     })
     this.repeatInfo()
-    console.log(122);
     wx.createSelectorQuery().select('#chat-box').boundingClientRect(res => {
       wx.pageScrollTo({
         scrollTop: res.height + 30,

@@ -1,5 +1,7 @@
 // pages/signIn/index.js
 import Toast from '@vant/weapp/toast/toast';
+import api from '../../api/index'
+var app = getApp();
 Page({
 
   /**
@@ -27,14 +29,43 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-
+    // this.getToken();
+    if (app.globalData.userInfo.hasRegist && app.globalData.userInfo.openid) {
+      wx.navigateTo({
+        url: '/pages/chat/index',
+      })
+    }
+  },
+  // 获取token
+  getToken() {
+    wx.login({
+      //成功放回
+      success:(res)=>{
+        let code= res.code
+        this.getOpenid(code);
+      }
+    })
+  },
+  // 获取openid
+  async getOpenid(code) {
+    let res = api.getOpenid(code);
+    console.log(res);
   },
   // 点击注册按钮
-  signIn() {
-    console.log(this.data.phone);
+  async signIn() {
     let state = this.checkPhone(this.data.phone);
     if (state) { //手机号正确
-
+      let param = {
+        user_phone: this.data.phone,
+        open_id: app.globalData.userInfo.openid
+      }
+      let res = await api.register(param);
+      if(res.code === 200) {
+        app.globalData.userInfo.hasRegist = true;
+        wx.navigateTo({
+          url: '/pages/chat/index',
+        })
+      }
     } else { //手机号不正确
       Toast.fail('手机号格式不正确，请检查');
     }

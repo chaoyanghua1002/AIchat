@@ -1,5 +1,8 @@
 <!--pages/signIn/index.wxml-->
 <view class="signIn-box">
+  <view class="sb-title">
+    手机号注册
+  </view>
   <view class="s-input">
     <van-cell-group>
       <van-field

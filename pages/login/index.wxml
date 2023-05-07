@@ -6,7 +6,9 @@
    <image class="logim_image" src="/image/login.jpg" mode="widthFix"/>
 </view>
 <view>
-  <button class="login_btn" 	open-type="getUserInfo"
+  <!-- <button class="login_btn" 	open-type="getUserInfo"
   bindgetuserinfo="getOpenId"
+  >开始对话</button> -->
+  <button class="login_btn" bindtap="goPage"
   >开始对话</button>
 </view>

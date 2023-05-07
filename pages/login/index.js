@@ -1,4 +1,6 @@
 // pages/login/index.js
+import api from '../../api/index'
+var app = getApp();
 Page({
 
   /**
@@ -26,7 +28,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-
   },
 
   /**
@@ -63,9 +64,22 @@ Page({
   onShareAppMessage() {
 
   },
+  // 跳转页面
+  goPage() {
+    if (app.globalData.userInfo.hasRegist) {
+      wx.navigateTo({
+        url: '/pages/chat/index',
+      })
+    } else {
+      wx.navigateTo({
+        url: '/pages/signIn/index',
+      })
+    }
+  },
+  // 按钮获取用户信息
   getOpenId(res){
     console.log(res)
-    if(res && res.detail && res.detail.cloudID){
+    if(res && res.detail && res.detail.cloudID) {
       wx.navigateTo({
         url: '/pages/signIn/index',
       })
