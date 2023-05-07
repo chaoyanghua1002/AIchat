@@ -29,27 +29,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-    // this.getToken();
     if (app.globalData.userInfo.hasRegist && app.globalData.userInfo.openid) {
       wx.navigateTo({
         url: '/pages/chat/index',
       })
     }
-  },
-  // 获取token
-  getToken() {
-    wx.login({
-      //成功放回
-      success:(res)=>{
-        let code= res.code
-        this.getOpenid(code);
-      }
-    })
-  },
-  // 获取openid
-  async getOpenid(code) {
-    let res = api.getOpenid(code);
-    console.log(res);
   },
   // 点击注册按钮
   async signIn() {
