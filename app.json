@@ -12,5 +12,8 @@
     "navigationBarTitleText": "Weixin",
     "navigationBarTextStyle":"black"
   },
+  "networkTimeout": {
+    "request": 180000
+  },
   "sitemapLocation": "sitemap.json"
 }

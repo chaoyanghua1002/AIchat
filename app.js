@@ -17,14 +17,17 @@ App({
     })
   },
   async signin(code) {
+    wx.showLoading({ title: "加载中"  });
     let res = await api.signin({code});
+    wx.hideLoading()
     if (res && res.code === 200) {
       this.globalData.userInfo.hasRegist = true;
+      this.globalData.userInfo.history = res.data.user_history;
     } else {
       this.globalData.userInfo.hasRegist = false;
     }
-    if (res && res.data) {
-      this.globalData.userInfo.openid = res.data;
+    if (res && res.data && res.data.open_id) {
+      this.globalData.userInfo.openid = res.data.open_id;
     } else {
       wx.showToast({
         title: '未获取到openid',
@@ -34,6 +37,7 @@ App({
   },
   globalData: {
     userInfo: {
+      history: [],
       hasRegist: false, //是否注册了
       openid: ''
     }

@@ -3,7 +3,7 @@
   福宝知多少
 </view>
 <view class="logim_imageBox">
-   <image class="logim_image" src="/image/login.jpg" mode="widthFix"/>
+   <image class="logim_image" src="/image/logo.png" mode="widthFix"/>
 </view>
 <view>
   <!-- <button class="login_btn" 	open-type="getUserInfo"

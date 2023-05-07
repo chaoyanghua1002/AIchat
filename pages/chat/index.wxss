@@ -16,6 +16,7 @@
   padding: 10% 0 0;
 }
 .dialog{
+  white-space: pre-line;
   background-color: #fff;
   border-radius:0 10px 10px 10px;
   padding:5px 5px 5px 5px;
